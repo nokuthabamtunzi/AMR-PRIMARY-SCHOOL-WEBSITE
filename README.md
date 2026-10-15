@@ -1,63 +1,62 @@
-# AMR SISTERS PRIMARY SCHOOL WEBSITE
+# AMR Sisters Primary School Website
 
-This repository contains a premium Next.js 14 + TypeScript + Tailwind CSS website for AMR Sisters Primary School (Zimbabwe).
-
-Overview
-- Next.js 14 App Router (TypeScript)
+This project is a premium, mobile-first school website for AMR Sisters Primary School in Zimbabwe, built with:
+- Next.js 14 App Router
+- TypeScript
 - Tailwind CSS
-- Framer Motion animations
-- Supabase (Auth, Database, Storage)
+- Framer Motion
+- Supabase
 
-What I built first
-1. Homepage with hero slider and key sections (hero, stats, meal system highlight, gallery preview).
-2. Admin dashboard (mobile-first) with Gallery Manager: drag & drop upload to Supabase Storage `amr-gallery` and automatic DB insert into `gallery` table.
+## Local setup
 
-Quick start
-1. Copy `.env.example` to `.env.local` and fill NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.
-2. Install dependencies:
-
+1. Install dependencies:
    npm install
 
-3. Run dev server:
+2. Copy `.env.example` to `.env.local` and add your Supabase values:
+   NEXT_PUBLIC_SUPABASE_URL=
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=
 
+3. Run the app locally:
    npm run dev
 
 4. Open http://localhost:3000
 
-Adding your photos
-- Put your photos in /public/images/amr/ and name them like:
-  - amr-hero-1.jpg
-  - amr-hero-2.jpg
-  - amr-hero-3.jpg
-  - campus-1.jpg
-  - class-1.jpg
-  - students-1.jpg
+## Add your photos
 
-Admin - Gallery Upload from Phone
-- Go to /admin
-- Sign in with a Supabase email/password account (create one in Supabase or use email sign up in the admin page).
-- Use the Gallery Manager to drag & drop photos from your phone browser; they will upload to the `amr-gallery` storage bucket and create records in the `gallery` table.
+Place your school photos in `public/images/amr/` using names such as:
+- amr-hero-1.jpg
+- amr-hero-2.jpg
+- amr-hero-3.jpg
+- campus-1.jpg
+- class-1.jpg
+- students-1.jpg
 
-Supabase setup
-1. Create a new Supabase project.
-2. Create a public storage bucket named `amr-gallery`.
-3. Run the SQL in `supabase.sql` to create the required tables.
-4. Create a project service role or use anon key for client operations (for production, use server-side functions / edge functions to secure writes).
+These are used by the homepage, about page, campus life, gallery, and other sections. You can replace them later without changing code.
 
-Deploy to Vercel
-- Set environment variables in Vercel from your Supabase project: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY
-- Push to Git and import the repo on Vercel.
+## Supabase setup
 
-Files of interest
-- app/ - Next.js App Router pages
-- app/admin - Admin dashboard and gallery manager
-- lib/supabaseClient.ts - Supabase client wrapper
-- supabase.sql - SQL to create tables
-- public/images/amr/ - placeholder folder for your images
+1. Create a Supabase project.
+2. Create a public storage bucket called `amr-gallery`.
+3. Import the SQL from `supabase.sql`.
+4. Use the project URL and anon key for environment variables.
 
-Design
-- Colors: Navy #0A1931, Gold #D4AF37, White
-- Fonts: Playfair Display (headings), Inter (body)
+## Admin login and phone uploads
 
-Notes
-- This is an initial commit and focuses on homepage + admin gallery upload. After you test uploads, I'll continue with the rest of pages and admin features (news, applications, messages, events, gallery filters, SEO, etc.).
+1. Visit `/admin`.
+2. Sign in with a Supabase Auth email/password account.
+3. Use the Gallery Manager to drag and drop photos from your mobile browser.
+4. Each upload is stored in the `amr-gallery` bucket and inserted into the `gallery` table.
+
+## Deployment to Vercel
+
+1. Push the repo to GitHub.
+2. Import the project in Vercel.
+3. Add the environment variables:
+   - NEXT_PUBLIC_SUPABASE_URL
+   - NEXT_PUBLIC_SUPABASE_ANON_KEY
+4. Deploy.
+
+## Notes
+
+- The project is intentionally designed to be rich and premium, with strong emphasis on whitespace, luxury school branding, and mobile responsiveness.
+- The admin section is protected and intended for photo uploads and content management.
